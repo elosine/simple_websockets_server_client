@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Line & Motion</title>
+  <!-- <link rel="stylesheet" type="text/css" href="lmstylesheet.css"> -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+</head>
+
+<body>
+
+</body>
+
+<!-- SCRIPTS ---------------------------------------------------------->
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io.connect('http://localhost');
+  socket.on('framect', function (data) {
+    console.log(data);
+  });
+</script>
+
+</html>
