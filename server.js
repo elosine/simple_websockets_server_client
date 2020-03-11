@@ -1,17 +1,17 @@
-var app = require('express')();
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
 
-server.listen(80);
-// WARNING: app.listen(80) will NOT work here!
+var timesyncServer = require('timesync/server');
+var express = require('express');
+var app = express();
+var path = require('path');
+const PORT = process.env.PORT || 5000
 
-app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/index.html');
+app.use(express.static(path.join(__dirname, '/public')));
+
+app.get('/', function(req, res){
+  res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
-io.on('connection', function (socket) {
-  socket.emit('framect', 99);
-});
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
-var hrTime = process.hrtime()
-console.log(hrTime[0]);
+// handle timesync requests
+app.use('/timesync', timesyncServer.requestHandler);

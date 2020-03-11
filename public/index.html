@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Line & Motion</title>
+  <title>Timesync Demo</title>
   <!-- <link rel="stylesheet" type="text/css" href="lmstylesheet.css"> -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 </head>
@@ -13,12 +13,7 @@
 </body>
 
 <!-- SCRIPTS ---------------------------------------------------------->
-<script src="/socket.io/socket.io.js"></script>
-<script>
-  var socket = io.connect('http://localhost');
-  socket.on('framect', function (data) {
-    console.log(data);
-  });
-</script>
+<script src="/timesync/timesync.js"></script>
+<script src="tsclient.js"></script>
 
 </html>
